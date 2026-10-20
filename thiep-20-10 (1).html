@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5a2347">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:ital,wght@0,500;1,500&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+<meta name="description" content="Thiệp chúc mừng 20/10 dành riêng cho bạn: nhập tên, nhận lời chúc và mở quà bất ngờ.">
+<title>20/10 – Một món quà nhỏ, ngàn yêu thương</title>
+<style>
+@property --c1{syntax:'<color>';inherits:true;initial-value:#e8789f}
+@property --c2{syntax:'<color>';inherits:true;initial-value:#f2b78e}
+@property --c3{syntax:'<color>';inherits:true;initial-value:#5a2347}
+@property --acc{syntax:'<color>';inherits:true;initial-value:#ffd9b8}
+:root{transition:--c1 3s,--c2 3s,--c3 3s,--acc 3s}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0}
+body{min-height:100svh;background:var(--c3);color:#fff;font:16px/1.5 'Be Vietnam Pro',system-ui,'Segoe UI',Roboto,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-30%;z-index:-3;background:conic-gradient(from 0deg,var(--c1),var(--c3),var(--c2),var(--c3),var(--c1));animation:spin 60s linear infinite;opacity:.78}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.45));pointer-events:none}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+body.fxtop #fx{z-index:5}
+.paper .sh{display:none}
+h1.shim{animation:none}.scr .big{animation:none}
+#orbs .orb{filter:none;--oc:var(--c2);background:radial-gradient(circle,var(--oc),transparent 68%)!important}#orbs .orb:nth-child(2){--oc:var(--c1)}#orbs .orb:nth-child(3){--oc:var(--acc)}
+#steps,#theme,#snd,#mus,#mm,.ghost{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#steps,#theme,#snd,#mus,#mm{background:rgba(12,6,26,.62)!important}.btn.ghost{background:rgba(12,6,26,.6)}
+body::before{will-change:transform}
+body::before{transition:opacity .65s}body.sw::before{opacity:0!important}
+body[data-bg="1"]::before{inset:0;background:linear-gradient(135deg,var(--c3),var(--c1),var(--c2),var(--c3));background-size:300% 300%;animation:pan 14s ease-in-out infinite alternate}
+body[data-bg="2"]::before{inset:0;background:radial-gradient(circle at 25% 25%,var(--c1),transparent 55%),radial-gradient(circle at 78% 72%,var(--c2),transparent 55%),var(--c3);animation:none}
+@keyframes pan{to{background-position:100% 100%}}
+#orbs{position:fixed;inset:0;z-index:-2;pointer-events:none;transition:transform .5s ease-out}
+#orbs::after{content:"";position:absolute;inset:-5%;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.5px);background-size:36px 36px}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);background:var(--c2);opacity:.45;animation:drift 20s ease-in-out infinite alternate}
+.orb:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-10vmax}
+.orb:nth-child(2){width:36vmax;height:36vmax;right:-8vmax;bottom:-8vmax;background:var(--c1);animation-delay:-7s}
+.orb:nth-child(3){width:24vmax;height:24vmax;left:40%;top:35%;background:var(--acc);opacity:.22;animation-delay:-13s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.2)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes twinkle{50%{transform:scale(1.15) rotate(8deg)}}
+@keyframes spin3d{to{transform:rotateY(360deg)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-22px)}55%{transform:translateY(0) scale(1.06,.94)}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-12deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(4deg)}}
+@keyframes glow{50%{transform:scale(1.08)}}
+@keyframes in{from{opacity:0;transform:translateY(24px) scale(.97)}}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.5) rotate(-10deg)}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}}
+@keyframes shake{0%,100%{transform:rotate(0)}8%{transform:rotate(-4deg)}16%{transform:rotate(4deg)}24%{transform:rotate(0)}}
+.scr{min-height:100svh;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:28px 16px 40px;text-align:center;position:relative;z-index:2}
+.scr.on{display:flex;animation:in .8s ease both}
+h1,h2,h3,h4{font-family:'Playfair Display','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;margin:0;line-height:1.28}
+h1{font-size:clamp(2rem,6.2vw,3.9rem);max-width:15em;text-shadow:0 4px 24px rgba(0,0,0,.35)}
+.lead{font-size:clamp(1.05rem,2.6vw,1.35rem);max-width:30em;margin:0;text-shadow:0 2px 12px rgba(0,0,0,.4);font-style:italic}
+.sub{opacity:.85;font-size:.95rem;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.hero{position:relative;width:210px;height:210px;display:grid;place-items:center}
+.hero .m{font-size:92px;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.35))}
+.hero::before{content:"";position:absolute;inset:14px;border-radius:50%;background:radial-gradient(var(--acc),transparent 68%);opacity:.5;animation:pulse 3.5s ease-in-out infinite}
+.orbit{position:absolute;inset:0;animation:spin 16s linear infinite}
+.orbit i{position:absolute;font-style:normal;font-size:26px}
+.orbit i:nth-child(1){top:0;left:50%}.orbit i:nth-child(2){bottom:14%;left:6%}.orbit i:nth-child(3){bottom:14%;right:6%}
+.btn{border:0;border-radius:999px;padding:14px 30px;font:600 1.05rem 'Be Vietnam Pro',system-ui,'Segoe UI',sans-serif;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--c3),var(--c1));background:linear-gradient(135deg,var(--c3),color-mix(in srgb,var(--c1) 62%,var(--c3)));box-shadow:0 8px 26px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.4);transition:transform .25s,box-shadow .25s,filter .25s;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 34px rgba(0,0,0,.45),inset 0 0 0 1px #fff}
+.btn:active{transform:scale(.96)}.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn:focus-visible,.link:focus-visible,input:focus-visible,#snd:focus-visible,#theme:focus-visible,#mus:focus-visible,#mm:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ghost{background:rgba(12,6,26,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:11px 20px;font-size:.95rem}
+.link{background:none;border:0;color:#6b4a5c;font:inherit;cursor:pointer;text-decoration:underline;margin-top:8px}
+.panel{background:rgba(255,250,246,.93);color:#3b2233;border-radius:26px;padding:30px 26px;width:min(92vw,440px);box-shadow:0 24px 70px rgba(0,0,0,.45);border:2px solid var(--acc);text-align:left}
+.panel h2{font-size:1.7rem;color:var(--c3);text-align:center}
+.panel p{text-align:center;margin:8px 0 18px;color:#6b4a5c}
+label{display:block;font-weight:600;margin-top:12px}
+input{width:100%;margin-top:6px;padding:13px 15px;border-radius:14px;border:2px solid #e6d2d9;background:#fff;font:inherit;color:#3b2233;transition:border-color .2s,box-shadow .2s}
+input:focus{border-color:var(--c1);box-shadow:0 0 0 4px rgba(255,160,190,.3)}
+input[aria-invalid=true]{border-color:#c0224f}
+.err{color:#b3123f;font-size:.88rem;min-height:1.2em;margin-top:4px}
+.panel .btn{width:100%;margin-top:14px}.panel .link{display:block;margin:10px auto 0}
+.env{position:relative;width:min(78vw,300px);height:200px;margin-top:100px;background:linear-gradient(160deg,var(--c2),var(--c1));border-radius:8px;box-shadow:0 22px 50px rgba(0,0,0,.45);animation:float 4s ease-in-out infinite}
+.letter{position:absolute;left:14px;right:14px;top:12px;bottom:12px;background:#fffaf5;border-radius:6px;display:grid;place-items:center;font-size:46px;z-index:1;transition:transform .9s .55s}
+.env.open .letter{transform:translateY(-100px)}
+.pocket{position:absolute;inset:0;z-index:2;border-radius:8px;background:linear-gradient(160deg,var(--c1),var(--c3));clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%)}
+.flap{position:absolute;left:0;right:0;top:0;height:58%;z-index:3;background:linear-gradient(var(--c2),var(--c1));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s,z-index 0s .35s}
+.env.open .flap{transform:perspective(900px) rotateX(180deg);z-index:0}
+#stage{display:flex;flex-direction:column;align-items:center;gap:26px}
+.paper{position:relative;width:min(92vw,520px);padding:38px 26px 30px;border-radius:20px;color:#3b2233;background:linear-gradient(160deg,#fffaf5,#fff0f4);border:3px double var(--c1);box-shadow:0 0 0 8px rgba(255,255,255,.18),0 28px 70px rgba(0,0,0,.5)}
+.paper{transition:transform .2s ease-out}
+.paper.pop{animation:pop .9s cubic-bezier(.2,1.3,.4,1) both}
+.paper::before,.paper::after{content:"🌸";position:absolute;font-size:30px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+.paper::before{top:-16px;left:-10px;animation:sway 5s ease-in-out infinite}.paper::after{bottom:-16px;right:-10px;animation:sway 6s ease-in-out infinite reverse}
+.tag{color:var(--c3);font-size:.95rem;letter-spacing:.06em;font-weight:600}
+#nameEl{font-size:clamp(2.1rem,9vw,3.4rem);color:var(--c3);margin:8px 0 4px;overflow-wrap:anywhere}
+#nameEl.s{font-size:clamp(1.5rem,6vw,2.2rem)}
+#nameEl.xs{font-size:clamp(1.15rem,4.8vw,1.6rem)}
+.w{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;animation:pop .7s both}
+.bar{height:3px;width:120px;margin:10px auto 16px;border-radius:3px;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c1))}
+#wish{font-size:1.15rem;line-height:1.75;font-style:italic;font-family:'Lora',Georgia,'Times New Roman',serif;margin:0 0 14px}
+.fact{margin:14px 0 0;font-size:.85rem;color:#6b4a5c;border-top:1px dashed var(--c1);padding-top:10px;animation:fade 1s .8s both}
+.fade{animation:fade .7s both}
+.giftwrap{display:grid;place-items:center;min-height:230px}
+.giftwrap>*{grid-area:1/1}
+.box{position:relative;width:130px;height:130px;margin-top:10px;transition:opacity .5s .2s,transform .5s .2s;animation:shake 2.8s ease-in-out infinite}
+.box.gone{opacity:0;transform:scale(.4);pointer-events:none}
+.box .bd{position:absolute;bottom:0;left:0;right:0;height:84px;border-radius:6px;background:linear-gradient(var(--c1),var(--c3))}
+.box .bd::after,.box .lid::after{content:"";position:absolute;left:50%;width:24px;margin-left:-12px;top:0;bottom:0;background:var(--acc)}
+.box .lid{position:absolute;top:8px;left:-7px;right:-7px;height:44px;border-radius:7px;background:linear-gradient(var(--c1),var(--c3));filter:brightness(1.15);transition:transform .7s cubic-bezier(.3,1.4,.5,1),opacity .6s .2s;box-shadow:0 5px 10px rgba(0,0,0,.25)}
+.box .lid::before{content:"🎀";position:absolute;top:-30px;left:50%;margin-left:-20px;font-size:38px;z-index:2}
+.box.open{animation:none}
+.box.open .lid{transform:translateY(-80px) rotate(-24deg);opacity:0}
+.box.open .bd::after{animation:pulse .6s}
+.gift.rise{animation:pop 1s cubic-bezier(.2,1.4,.4,1) both}
+.gemo{position:relative;font-size:110px;line-height:1.1;display:inline-block;filter:drop-shadow(0 0 14px var(--acc))}
+.gemo.float{animation:float 3.5s ease-in-out infinite}.gemo.sway{animation:sway 3.5s ease-in-out infinite;transform-origin:bottom}
+.gemo.twinkle{animation:twinkle 2.4s ease-in-out infinite}.gemo.spin{animation:spin3d 6s linear infinite}
+.gemo.bounce{animation:bounce 2.2s ease-in-out infinite}.gemo.pulse{animation:pulse 2.4s ease-in-out infinite}
+.gemo.wiggle{animation:wiggle 2.8s ease-in-out infinite}.gemo.glow{animation:glow 2.8s ease-in-out infinite}
+.gift h4{font-size:1.4rem;color:var(--c3)}.gift p{margin:4px 0 0;color:#6b4a5c}
+#closing{margin:14px 0 0;font-weight:600;color:var(--c3);animation:fade 1s .4s both}
+#acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:620px;animation:fade 1s .5s both}
+#toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;z-index:9;background:rgba(255,250,246,.96);color:#3b2233;padding:11px 22px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.35s;pointer-events:none;font-weight:600}
+#toast.on{transform:translate(-50%,0);opacity:1}
+#theme,#snd,#mus,#mm{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:8;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(12,6,26,.4);backdrop-filter:blur(8px);font-size:20px;cursor:pointer;transition:transform .3s}
+#snd{right:66px}#mus{right:118px}#mm{right:170px}#mus[aria-pressed=false]{opacity:.55}
+#snd:hover,#theme:hover,#mus:hover,#mm:hover{transform:rotate(40deg) scale(1.1)}
+@keyframes shimmer{to{background-position:200% 0}}
+@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.06)}}
+@keyframes shine{from{background-position:150% 0}to{background-position:-100% 0}}
+@keyframes zoom{from{opacity:0;transform:scale(3) rotate(180deg)}}
+@keyframes drop{0%{opacity:0;transform:translateY(-320px)}60%{opacity:1;transform:translateY(12px)}80%{transform:translateY(-14px)}}
+.scr{padding-top:calc(72px + env(safe-area-inset-top,0px));padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+.shim{text-shadow:none;background:linear-gradient(90deg,#fff,var(--acc),#fff,var(--acc),#fff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite;filter:drop-shadow(0 2px 2px rgba(0,0,0,.5)) drop-shadow(0 6px 20px rgba(0,0,0,.55))}
+.big{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font:900 clamp(7rem,30vw,20rem)/1 Georgia,serif;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.2);z-index:-1;pointer-events:none;user-select:none;animation:breathe 7s ease-in-out infinite}
+.hero::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(255,255,255,.45);animation:spin 22s linear infinite}
+#steps{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:14px;z-index:8;display:flex;align-items:center;gap:10px;padding:0 14px;height:44px;border-radius:999px;background:rgba(12,6,26,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:.85rem;font-weight:600;border:1px solid rgba(255,255,255,.35)}
+#steps span{display:flex;gap:6px}#steps i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:.4s}
+#steps i.on{background:var(--acc);box-shadow:0 0 8px var(--acc);transform:scale(1.3)}
+@media(max-width:480px){#steps b{display:none}}
+.paper .sh{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);background-size:250% 100%;animation:shine 5s 1.5s infinite;mix-blend-mode:overlay}
+.paper.t1{background:linear-gradient(160deg,#2a1240,#4d1f63);color:#fff4fa;border-color:var(--acc)}
+.paper.t1 :is(.tag,#nameEl,.gift h4,#closing){color:var(--acc)}.paper.t1 :is(.gift p,.fact){color:#e9d6ee}
+.paper.t2{background:linear-gradient(135deg,#fff6d8,#f6d98c 45%,#fff2c2 62%,#e8c25f);border-color:#b8862b}
+.paper.t3{background:radial-gradient(circle at 18% 12%,#ffd9e8,transparent 55%),radial-gradient(circle at 85% 88%,#d6efff,transparent 55%),#fffaf6}
+.gift{position:relative}.gift>:not(.aura){position:relative;z-index:1}
+.gift.r0{animation:pop 1s cubic-bezier(.2,1.4,.4,1) both}.gift.r1{animation:zoom 1.1s cubic-bezier(.2,1.2,.3,1) both}.gift.r2{animation:drop 1.1s both}
+.aura{position:absolute;left:50%;top:-34px;width:240px;height:240px;margin-left:-120px;border-radius:50%;background:repeating-conic-gradient(var(--c2) 0 8deg,transparent 8deg 20deg);-webkit-mask:radial-gradient(circle,#000 10%,transparent 68%);mask:radial-gradient(circle,#000 10%,transparent 68%);animation:spin 14s linear infinite;opacity:.6;pointer-events:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="orbs" aria-hidden="true"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+<div id="steps" aria-hidden="true"><b>💐 Thiệp 20/10</b><span><i></i><i></i><i></i><i></i><i></i></span></div>
+<button id="snd" aria-pressed="true" aria-label="Bật tắt âm thanh" title="Âm thanh (đang bật)">🔔</button>
+<button id="mus" aria-label="Đổi bài nhạc ngẫu nhiên" title="Đổi bài nhạc ngẫu nhiên">🎵</button>
+<button id="mm" aria-label="Tạm dừng hoặc phát nhạc" title="Tạm dừng nhạc">⏸</button>
+<button id="theme" aria-label="Đổi giao diện màu" title="Đổi giao diện màu">🎨</button>
+
+<section id="home" class="scr on">
+  <div class="big" aria-hidden="true">20/10</div>
+  <div class="hero" aria-hidden="true"><div class="m">💌</div><div class="orbit"><i>🌸</i><i>✨</i><i>💖</i></div></div>
+  <h1 class="shim">Chúc mừng Ngày Phụ nữ Việt Nam 20/10</h1>
+  <p class="lead">Dành tặng bạn một chút dịu dàng giữa cuộc sống bộn bề</p>
+  <button class="btn" id="start">Nhận thiệp yêu thương</button>
+  <span class="sub">Một lời chúc dành riêng cho bạn</span>
+</section>
+
+<section id="form" class="scr">
+  <div class="panel" id="f">
+    <h2>Thiệp này gửi cho ai?</h2>
+    <p>Chỉ cần hai điều nhỏ xíu. Thông tin ở lại trên máy của bạn.</p>
+    <label for="nm">🌸 Họ và tên người nhận</label>
+    <input id="nm" maxlength="40" autocomplete="off" placeholder="Ví dụ: Nguyễn Thu Hà">
+    <div class="err" id="e1" role="alert"></div>
+    <label for="ag">🎂 Độ tuổi</label>
+    <input id="ag" inputmode="numeric" maxlength="3" autocomplete="off" placeholder="Ví dụ: 28">
+    <div class="err" id="e2" role="alert"></div>
+    <button class="btn" type="button" id="go">Tạo thiệp của tôi</button>
+    <button class="link" type="button" id="back">← Quay lại trang chủ</button>
+  </div>
+</section>
+
+<section id="card" class="scr">
+  <div id="stage">
+    <div class="env" id="env"><div class="letter">💌</div><div class="pocket"></div><div class="flap"></div></div>
+    <button class="btn" id="openCard">Mở thiệp</button>
+  </div>
+  <article class="paper" id="paper" hidden>
+    <div class="sh"></div>
+    <div class="tag">20/10 · Chúc mừng Ngày Phụ nữ Việt Nam</div>
+    <h2 id="nameEl"></h2><div class="bar"></div>
+    <p id="wish"></p>
+    <div class="giftwrap">
+      <div class="box" id="box"><div class="bd"></div><div class="lid"></div></div>
+      <div class="gift" id="gift" hidden><div class="aura"></div><div class="gemo" id="gemo"></div><h4 id="gname"></h4><p id="gdesc"></p></div>
+    </div>
+    <button class="btn" id="openGift">Mở quà</button>
+    <p id="closing" hidden></p>
+    <p class="fact" id="fact" hidden></p>
+  </article>
+  <div id="acts" hidden>
+    <button class="btn ghost" id="bWish">💬 Nhận lời chúc khác</button>
+    <button class="btn ghost" id="bLuck">🍀 Thử vận may</button>
+    <button class="btn ghost" id="bCopy">📋 Sao chép lời chúc</button>
+    <button class="btn ghost" id="bShare">💌 Chia sẻ thiệp</button>
+    <button class="btn ghost" id="bNew">✨ Tạo thiệp mới</button>
+    <button class="btn ghost" id="bHome">🏠 Làm lại từ đầu</button>
+  </div>
+</section>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $=s=>document.querySelector(s),R=n=>Math.floor(Math.random()*n);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- LỜI CHÚC (8 nhóm tuổi × 8) ---------- */
+const W=[
+["Chúc {n} luôn cười thật tươi và ngủ thật ngoan nhé!","{n} là cô công chúa nhỏ rạng rỡ nhất hôm nay!","Chúc {n} ăn ngoan, chóng lớn, mỗi ngày đều vui như hội!","Tặng {n} một cầu vồng ngọt ngào và thật nhiều cái ôm!","{n} ơi, mong con luôn được yêu thương và thỏa sức chơi đùa!","Chúc {n} có những giấc mơ đầy sao và kẹo ngọt!","{n} bé xinh ơi, mỗi nụ cười của con là một bông hoa nở!","Chúc {n} khỏe mạnh, hồn nhiên và luôn được ôm thật chặt!"],
+["{n} thật đáng yêu! Hãy luôn tò mò và dũng cảm khám phá nhé!","Chúc {n} học được điều hay, kết bạn tốt và tự tin là chính mình!","{n} ơi, mỗi ngày của con là một trang truyện kỳ diệu đang được viết!","Chúc {n} có đôi cánh ước mơ thật lớn và trái tim thật tốt!","Con giỏi lắm, {n}! Cứ vui vẻ thử thách những điều mới nhé!","Chúc {n} luôn mạnh khỏe, thông minh và biết yêu thương mọi người!","{n} à, sai một lần cũng không sao, con vẫn tuyệt vời lắm!","Chúc {n} một năm học rực rỡ như bảy sắc cầu vồng!"],
+["{n}, cứ là chính mình, bạn vốn đã đặc biệt rồi!","Chúc {n} giữ vững ước mơ và đủ can đảm để theo đuổi nó!","Tuổi trẻ của {n} là bản nhạc riêng, hãy chơi thật hay nhé!","Chúc {n} trưởng thành dịu dàng, mạnh mẽ và luôn biết tôn trọng bản thân!","{n} ơi, đừng vội, mỗi người đều có nhịp nở hoa riêng!","Chúc {n} tìm thấy đam mê, những người bạn tốt và nhiều ngày đầy cảm hứng!","Bạn đủ giỏi và xứng đáng với mọi điều tốt lành, {n} nhé!","Chúc {n} biến mọi thử thách thành bậc thang bước lên ước mơ!"],
+["Chúc {n} tuổi trẻ rực rỡ, thật nhiều trải nghiệm và ít nuối tiếc!","{n} ơi, mong bạn học được điều mình yêu và yêu điều mình làm!","Chúc {n} có những người bạn chân thành và những chuyến đi đáng nhớ!","Dám mơ lớn, dám thử, dám sai: {n} cứ tự tin bước tiếp nhé!","Chúc {n} tìm thấy con đường riêng và đủ bình tĩnh mỗi khi lạc lối!","{n} à, cứ tỏa sáng theo cách của bạn, thế giới đang chờ đấy!","Chúc {n} vững vàng trong học tập, công việc và luôn nhớ chăm sóc bản thân!","Mong mọi nỗ lực của {n} đều nở thành những điều đẹp đẽ!"],
+["Chúc {n} sống thật với mình, vững vàng trong công việc và nhẹ nhàng trong tim!","{n} xứng đáng được yêu thương, nhất là từ chính bản thân mình!","Chúc {n} mọi lựa chọn đều mang lại bình yên và niềm vui riêng!","Giữa bộn bề, mong {n} luôn tìm được những khoảng lặng dịu dàng!","Chúc {n} sự nghiệp thăng hoa, cuộc sống ấm áp và sức khỏe dồi dào!","{n} à, bạn mạnh mẽ hơn bạn nghĩ và dịu dàng hơn bạn tưởng!","Chúc {n} đi theo con đường của riêng mình và hạnh phúc theo cách mình chọn!","Mong {n} luôn có thời gian cho đam mê, cho bạn bè và cho chính mình!"],
+["Chúc {n} bình an trong tâm, khỏe mạnh trong người và vui trong từng ngày!","Cảm ơn {n} vì đã luôn kiên cường; hôm nay hãy để mình được nghỉ ngơi nhé!","Chúc {n} biết trân trọng những điều giản dị, vì đó là hạnh phúc bền lâu!","{n} xứng đáng được quan tâm nhiều hơn, hãy dành chút thời gian cho mình nhé!","Chúc {n} gặt hái thành quả từ những nỗ lực thầm lặng bao năm qua!","Mong {n} luôn có người lắng nghe và những buổi chiều thật dễ chịu!","Chúc {n} giữ được ngọn lửa đam mê và sự thanh thản trong tâm hồn!","Sự dịu dàng và bản lĩnh của {n} khiến cuộc sống quanh bạn thêm đẹp!"],
+["Chúc {n} dồi dào sức khỏe, tâm hồn tươi trẻ và mỗi ngày đều an vui!","Cảm ơn {n} vì bao yêu thương đã gieo trồng; chúc bạn mãi tươi vui bên người thân!","Chúc {n} có thật nhiều thời gian cho sở thích, vườn hoa và những bữa cơm ấm cúng!","Mong {n} luôn bình yên, nhẹ nhàng và được trân trọng như xứng đáng!","Chúc {n} những buổi sáng thong thả cùng tách trà thơm và nụ cười rạng rỡ!","Tuổi nào {n} cũng đẹp bằng sự từng trải và trái tim ấm áp!","Chúc {n} gia đình sum vầy, bạn bè quây quần và tinh thần luôn lạc quan!","Mong mỗi ngày của {n} là một ngày khỏe, một ngày vui, một ngày bình yên!"],
+["Kính chúc {n} mạnh khỏe, an vui và luôn được con cháu quây quần!","Kính chúc {n} sống vui, sống khỏe và bình an mỗi ngày!","Kính chúc {n} tâm hồn thư thái, giấc ngủ ngon và nụ cười luôn nở!","Cảm ơn {n} vì cả đời yêu thương; kính chúc bình an và thật nhiều niềm vui!","Kính chúc {n} dồi dào sức khỏe, thật nhiều bình yên và sum vầy!","Mong {n} mỗi sớm mai đều nhẹ nhàng, mỗi chiều về đều ấm áp!","Kính chúc {n} trường thọ, an lành và mãi là điểm tựa của mọi người!","Kính chúc {n} luôn trong vòng tay yêu thương và những kỷ niệm đẹp!"]];
+
+/* ---------- QUÀ TẶNG (8 nhóm × 4 = 32) [emoji, tên, ý nghĩa, hiệu ứng] ---------- */
+const GF=[
+[["⭐","Ngôi sao phép thuật","Ước gì được nấy, ít nhất là trong giấc mơ ngọt ngào.","twinkle"],["🌈","Cầu vồng nhỏ","Mang bảy sắc vui vẻ đến mỗi ngày của bé.","float"],["🧸","Gấu bông ôm ấp","Người bạn mềm mại luôn ở bên bé.","bounce"],["👑","Vương miện nhỏ","Dành cho cô bé rạng rỡ nhất nhà.","glow"]],
+[["🖍️","Hộp bút màu kỳ diệu","Vẽ nên một thế giới thật rực rỡ.","wiggle"],["📖","Cuốn truyện cổ tích","Mở ra những cuộc phiêu lưu bất tận.","float"],["🏅","Huy hiệu dũng cảm","Vì con luôn dám thử điều mới.","spin"],["🐱","Chú mèo may mắn","Vẫy tay mang may mắn đến cho bạn.","wiggle"]],
+[["📓","Sổ tay ước mơ","Nơi ước mơ được viết thành hiện thực.","float"],["🌌","Bầu trời sao","Mỗi vì sao là một khả năng của bạn.","twinkle"],["📿","Vòng tình bạn","Kết nối những người thật sự hiểu bạn.","spin"],["📷","Máy ảnh kỷ niệm","Giữ lại khoảnh khắc đẹp của tuổi trẻ.","pulse"]],
+[["💐","Bó hoa kỹ thuật số","Không bao giờ héo, chỉ ngày càng thơm.","sway"],["📚","Cuốn sách truyền cảm hứng","Mỗi trang là một động lực mới.","float"],["🧭","La bàn ước mơ","Luôn chỉ về điều bạn thật sự muốn.","spin"],["🍀","Hộp may mắn","Bên trong là những bất ngờ dễ thương.","bounce"]],
+[["🌹","Bó hoa sang trọng","Dành cho người phụ nữ tinh tế và mạnh mẽ.","sway"],["🕊️","Hộp bình yên","Một khoảng lặng nhẹ nhàng giữa bộn bề.","float"],["🔑","Chiếc chìa khóa cơ hội","Mở cánh cửa mà bạn xứng đáng bước vào.","wiggle"],["🪞","Chiếc gương tự tin","Nhắc bạn thấy mình tuyệt vời đến nhường nào.","glow"]],
+[["🍵","Tách trà an yên","Chậm lại, thở nhẹ và tận hưởng hiện tại.","float"],["🌷","Khu vườn bình yên","Nơi mọi lo âu hóa thành hoa.","sway"],["🖼️","Album kỷ niệm","Trân trọng những năm tháng đã đi qua.","pulse"],["💝","Hộp niềm vui","Gói gọn những điều ngọt ngào nhất.","bounce"]],
+[["🏵️","Bó hoa tri ân","Lời cảm ơn gửi tới người luôn cho đi.","sway"],["🌿","Hộp sức khỏe","Chúc bạn khỏe mạnh, tươi tắn mỗi ngày.","float"],["🫖","Ấm trà sum vầy","Hơi ấm của những buổi quây quần.","pulse"],["🦋","Cánh bướm tự do","Tuổi mới, nhẹ nhàng bay lượn.","wiggle"]],
+[["🌺","Đóa hoa trường thọ","Nở mãi cùng năm tháng an lành.","sway"],["🌅","Bình minh an lành","Mỗi sớm mai đều dịu dàng.","glow"],["🏡","Hộp sum vầy","Gói trọn tiếng cười của cả nhà.","pulse"],["🌟","Ngôi sao bình an","Soi sáng những ngày an vui.","twinkle"]]];
+const END=["Một món quà nhỏ, ngàn yêu thương ♥","Chúc bạn một ngày 20/10 thật ngọt ngào!","Bạn xứng đáng với mọi điều dịu dàng nhất.","Hôm nay, thế giới gửi đến bạn một nụ hoa.","Luôn tỏa sáng theo cách của riêng mình nhé!"];
+const FACTS=["Bạn có biết? Ngày 20/10/1930 là ngày thành lập Hội Phụ nữ phản đế Việt Nam, tiền thân của Hội Liên hiệp Phụ nữ Việt Nam.","Gợi ý nhỏ: gửi lời chúc này cho một người phụ nữ bạn biết ơn, chỉ mất ba mươi giây thôi.","Gợi ý nhỏ: chạm vào nền để thả thêm tim và ánh sao.","Gợi ý nhỏ: nhấn 🎨 để đổi màu và kiểu hiệu ứng nền ngay lập tức."];
+const grp=a=>a<=5?0:a<=12?1:a<=17?2:a<=24?3:a<=34?4:a<=49?5:a<=64?6:7;
+const pick=(l,last)=>{let i;do{i=R(l)}while(l>1&&i===last);return i};
+
+/* ---------- BẢNG MÀU TỰ ĐỘNG ---------- */
+const P=[["#e8789f","#f2b78e","#5a2347","#ffd9b8"],["#9b1b3a","#d9b36c","#2d0a18","#f4dfa6"],["#8d7cd6","#c9c6e6","#2a2250","#e5e2ff"],["#1fa59a","#f1dc8a","#0b3a3d","#fff1b5"],["#3b5bdb","#8ab4ff","#0a1230","#cfe0ff"],["#f48fb1","#fcd5e0","#6b2740","#ffe3ec"],["#c9a58a","#f3e6d4","#4a3328","#fff3e0"],["#ff8a65","#9b5de5","#3a1c5c","#ffd0b8"],["#1e56a0","#cfd8e3","#0b1f3f","#e3ecf7"],["#12c2a0","#8e5cf0","#0a1f3a","#b6ffe9"]];
+let pi=R(P.length);
+function pal(){const s=document.documentElement.style;["--c1","--c2","--c3","--acc"].forEach((k,i)=>s.setProperty(k,P[pi][i]))}
+pal();const next=()=>{pi=(pi+1+R(P.length-1))%P.length;pal();bgSwap();fm=(fm+1)%4;ps.forEach(q=>{if(q.life===undefined)q.t=FX[fm][R(4)]})};
+let bgm=0,bgt;function bgSwap(){clearTimeout(bgt);document.body.classList.add("sw");bgt=setTimeout(()=>{bgm=(bgm+1)%3;document.body.dataset.bg=bgm;document.body.classList.remove("sw")},650)}
+let pt=setInterval(next,9000);
+$("#theme").onclick=()=>{next();clearInterval(pt);pt=setInterval(next,9000)};
+
+/* ---------- HẠT: cánh hoa, tim, sao, bụi sáng + confetti ---------- */
+const cv=$("#fx"),cx=cv.getContext("2d");let W_,H_,ps=[],raf=0;const FX=[[0,0,0,3],[1,1,0,3],[2,2,3,3],[0,1,2,3]];let fm=R(4);
+function rs(){const d=Math.min(devicePixelRatio||1,1.5);W_=innerWidth;H_=innerHeight;cv.width=W_*d;cv.height=H_*d;cx.setTransform(d,0,0,d,0,0);if(reduce)loop()}
+const mk=top=>({x:Math.random()*W_,y:top?-20:Math.random()*H_,s:7+Math.random()*13,vy:.3+Math.random()*.7,vx:(Math.random()-.5)*.4,r:Math.random()*6.28,vr:(Math.random()-.5)*.03,t:FX[fm][R(4)],ph:Math.random()*6.28,a:.3+Math.random()*.5});
+function draw(q){const p=P[pi];cx.save();cx.translate(q.x,q.y);cx.rotate(q.r);
+cx.globalAlpha=q.life!==undefined?Math.min(1,q.life/30):q.a;
+cx.fillStyle=q.c||[p[3],p[1],"#fff",p[3]][q.t%4];
+if(q.e){cx.drawImage(emo(q.e),-q.s/2,-q.s/2,q.s,q.s)}
+else if(q.t===0){cx.beginPath();cx.ellipse(0,0,q.s*.4,q.s*.75,0,0,6.28);cx.fill()}
+else if(q.t===3){cx.beginPath();cx.arc(0,0,q.s*.2,0,6.28);cx.fill()}
+else if(q.t===4){cx.fillRect(-q.s/2,-q.s/4,q.s,q.s/2)}
+else{cx.font=q.s*1.5+"px sans-serif";cx.textAlign="center";cx.textBaseline="middle";cx.fillText(q.t===1?"♥":"✦",0,0)}
+cx.restore()}
+const ec={};function emo(e){let c=ec[e];if(!c){c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d");x.font="48px sans-serif";x.textAlign="center";x.textBaseline="middle";x.fillText(e,32,34);ec[e]=c}return c}
+let lt=0;function loop(ts){if(ts&&ts-lt<14.5){raf=requestAnimationFrame(loop);return}lt=ts||0;cx.clearRect(0,0,W_,H_);
+for(let i=ps.length-1;i>=0;i--){const q=ps[i];
+if(q.life!==undefined){q.vy+=q.g==null?.12:q.g;q.vx*=.99;if(--q.life<=0){ps.splice(i,1);continue}}
+else{q.x+=Math.sin(q.ph+=.01)*.3;if(q.y>H_+20)Object.assign(q,mk(1))}
+q.x+=q.vx;q.y+=q.vy;q.r+=q.vr;draw(q)}
+fx2();
+if(!reduce)raf=requestAnimationFrame(loop)}
+function burst(n,fx,fy){if(reduce)return;const p=P[pi],cs=[p[0],p[1],p[3],"#fff"];
+for(let i=0;i<n&&ps.length<420;i++){const a=Math.random()*6.28,v=3+Math.random()*7;
+ps.push({x:W_*fx,y:H_*fy,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,life:80+R(70),t:R(5),c:cs[R(4)],s:6+Math.random()*9,r:0,vr:(Math.random()-.5)*.3})}}
+/* ---- PHÁO HOA ---- */
+let rk=[],sk=[];const hue=()=>`hsl(${R(360)},100%,65%)`;
+function firework(x,y,tp,l){if(reduce)return;if(l)whistle();rk.push({x:x==null?W_*(.1+Math.random()*.8):x,ty:y==null?H_*(.12+Math.random()*.38):y,y:H_,l:l,tp:tp==null?R(5):tp})}
+function explode(x,y,tp,l){if(l){boom();crackle()}const c=[hue(),P[pi][3]],k=innerWidth<700?1:1.8,n=innerWidth<700?60:100;
+for(let i=0;i<n&&sk.length<900;i++){let a=i/n*6.283,v=0,vx,vy;
+if(tp===0||tp===4){v=(1.5+Math.random()*3.8)*k;a=Math.random()*6.283}
+else if(tp===1)v=3.8*k;
+else if(tp===2){vx=16*Math.sin(a)**3/3.2*k;vy=-(13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a))/3.2*k}
+else v=(1.8+3.4*Math.abs(Math.cos(2.5*a)))*k;
+if(vx===undefined){vx=Math.cos(a)*v;vy=Math.sin(a)*v}
+const w=tp===4;sk.push({x,y,vx,vy,l:w?130:90,m:w?130:90,c:w?"#ffd36b":c[i%2],g:w?.045:.03,f:w?.985:.97})}
+sk.push({x,y,vx:0,vy:0,l:9,m:9,c:"#fff",big:1,g:0,f:1})}
+function fx2(){if(!rk.length&&!sk.length)return;cx.save();cx.globalCompositeOperation="lighter";cx.lineCap="round";
+for(let i=rk.length-1;i>=0;i--){const r=rk[i];r.y-=10;r.x+=Math.sin(r.y*.05)*.5;cx.globalAlpha=1;cx.strokeStyle="#ffe9a8";cx.lineWidth=3;cx.beginPath();cx.moveTo(r.x,r.y);cx.lineTo(r.x,r.y+16);cx.stroke();
+if(r.y<=r.ty){explode(r.x,r.y,r.tp,r.l);rk.splice(i,1)}}
+for(let i=sk.length-1;i>=0;i--){const q=sk[i];q.vx*=q.f;q.vy=q.vy*q.f+q.g;q.x+=q.vx;q.y+=q.vy;const a=--q.l/q.m;if(a<=0){sk.splice(i,1);continue}
+if(q.big){cx.globalAlpha=a*.45;cx.fillStyle="#fff";cx.beginPath();cx.arc(q.x,q.y,50*a,0,6.28);cx.fill();continue}
+cx.globalAlpha=a;cx.strokeStyle=q.c;cx.lineWidth=2.8;cx.beginPath();cx.moveTo(q.x-q.vx*1.6,q.y-q.vy*1.6);cx.lineTo(q.x,q.y);cx.stroke()}
+cx.restore()}
+/* ---- CÁC MÀN TRÌNH DIỄN NGẪU NHIÊN ---- */
+const SHOWS=[
+()=>{for(let i=0;i<7;i++)later(()=>firework(),i*260)},
+()=>{for(let i=0;i<5;i++)later(()=>firework(W_*(.15+i*.175),H_*(.18+R(3)*.1),i),i*220)},
+()=>{for(let i=0;i<44;i++)later(()=>{if(ps.length<420)ps.push({x:Math.random()*W_,y:-30,vx:(Math.random()-.5)*1.4,vy:1+Math.random()*2,g:.01,life:280,t:0,e:["🌸","🌺","🌷","🌹","💮","🏵️","🌼"][R(7)],s:30+R(26),r:0,vr:(Math.random()-.5)*.06})},i*70)},
+()=>{[.04,.96].forEach((fx,k)=>later(()=>{for(let i=0;i<80;i++){const a=-Math.PI/2+(k?-1:1)*(.25+Math.random()*.6),v=9+Math.random()*9;ps.push({x:W_*fx,y:H_,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:110+R(60),t:4,c:hue(),s:7+R(8),r:0,vr:.3*(Math.random()-.5)})}},k*250))},
+()=>{for(let i=0;i<24;i++)later(()=>{if(ps.length<340)ps.push({x:W_*(.3+Math.random()*.4),y:H_+10,vx:(Math.random()-.5)*3,vy:-(6+Math.random()*6),g:.12,life:130,t:1,e:["💖","💗","💝","✨","⭐"][R(5)],s:22+R(14),r:0,vr:0})},i*50)}];
+function celebrate(n){if(reduce)return;navigator.vibrate&&navigator.vibrate([25,40,25]);SHOWS.slice().sort(()=>Math.random()-.5).slice(0,n).forEach((f,i)=>later(f,i*500))}
+setInterval(()=>{if(document.hidden||reduce)return;if($("#home").classList.contains("on")||$("#form").classList.contains("on"))firework()},3800);
+function step(k){if(k==null)return;document.querySelectorAll("#steps i").forEach((d,i)=>d.classList.toggle("on",i<=k))}step(0);
+addEventListener("resize",()=>{rs()});rs();
+for(let i=0,n=reduce?8:innerWidth<700?20:38;i<n;i++)ps.push(mk());
+loop();
+document.addEventListener("visibilitychange",()=>{if(reduce)return;cancelAnimationFrame(raf);if(!document.hidden)loop()});
+if(!reduce&&matchMedia("(pointer:fine)").matches)addEventListener("mousemove",e=>{$("#orbs").style.transform=`translate(${(e.clientX/innerWidth-.5)*-34}px,${(e.clientY/innerHeight-.5)*-34}px)`});
+
+let snd=true,ac;
+function chime(ns){if(!snd)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();ns.forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime+i*.12;o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.4,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+.6);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+.65)})}catch(_){}}
+function A(){if(!snd)return null;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();return ac}catch(_){return null}}
+const nb={};function noise(d,f,v,t0){const c=A();if(!c)return;const t=c.currentTime+(t0||0);const k=d+"_"+c.sampleRate;let b=nb[k];if(!b){const n=c.sampleRate*d|0;b=c.createBuffer(1,n,c.sampleRate);const a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=(Math.random()*2-1)*Math.pow(1-i/n,2);nb[k]=b}const s=c.createBufferSource(),fl=c.createBiquadFilter(),g=c.createGain();s.buffer=b;fl.type="lowpass";fl.frequency.setValueAtTime(f,t);fl.frequency.exponentialRampToValueAtTime(80,t+d);g.gain.value=v;s.connect(fl);fl.connect(g);g.connect(c.destination);s.start(t)}
+function boom(){noise(.8,2000,1);noise(.3,6000,.3,.02)}
+function crackle(){for(let i=0;i<5;i++)noise(.05,7000,.25,.1+i*.07+Math.random()*.05)}
+function whistle(){const c=A();if(!c)return;const t=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.setValueAtTime(500,t);o.frequency.exponentialRampToValueAtTime(1500,t+.45);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.15,t+.05);g.gain.exponentialRampToValueAtTime(.0001,t+.5);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.55)}
+function pop(t0){noise(.12,3500,.8,t0);const c=A();if(!c)return;const t=c.currentTime+(t0||0),o=c.createOscillator(),g=c.createGain();o.frequency.setValueAtTime(380,t);o.frequency.exponentialRampToValueAtTime(90,t+.12);g.gain.setValueAtTime(.6,t);g.gain.exponentialRampToValueAtTime(.0001,t+.15);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.16)}
+function fxTop(){document.body.classList.add("fxtop");later(()=>document.body.classList.remove("fxtop"),9000)}
+function grandFireworks(){if(reduce)return;fxTop();for(let i=0;i<26;i++)later(()=>firework(W_*(.08+Math.random()*.84),H_*(.1+Math.random()*.35),R(5),1),i*300+R(120));[200,1600,3000].forEach(d=>later(()=>firework(W_*.5,H_*.25,2,1),d))}
+function giftParty(){if(reduce)return;fxTop();pop();pop(.12);pop(.24);SHOWS[3]();later(SHOWS[3],700);burst(120,.5,.55);
+for(let i=0;i<160;i++)later(()=>{if(ps.length<420)ps.push({x:Math.random()*W_,y:-20,vx:(Math.random()-.5)*2,vy:1.5+Math.random()*3,g:.012,life:340,t:4,c:hue(),s:12+R(14),r:0,vr:(Math.random()-.5)*.3})},i*35);
+[0,1500,3000].forEach(d=>later(SHOWS[2],d));later(()=>firework(W_*.3,H_*.3,0,1),300);later(()=>firework(W_*.7,H_*.3,2,1),600);later(()=>chime([1047,1319,1568,2093]),550)}
+let mus=true,mG,mt,mn=0,mnext=0,mOn=false;
+const CH=[[261.63,329.63,392],[220,261.63,329.63],[174.61,220,261.63],[196,246.94,293.66]];
+const ML=[659.25,0,784,0,1046.5,784,659.25,0,659.25,0,880,0,1046.5,880,659.25,0,698.46,0,880,0,1046.5,880,698.46,0,587.33,0,784,0,987.77,784,587.33,0];
+function mtone(f,t,d,ty,v){const o=ac.createOscillator(),g=ac.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mG);o.start(t);o.stop(t+d+.05)}
+function mTick(){if(!mus||!ac)return;const e=.357;while(mnext<ac.currentTime+.4){const s=mn%32,ch=CH[s>>3],i=s&7,t=mnext;mtone(ch[i%3],t,.5,"triangle",.05);if(!i){mtone(ch[0]/2,t,e*7,"sine",.1);ch.forEach(f=>mtone(f,t,e*7,"sine",.025))}if(ML[s])mtone(ML[s],t,.7,"sine",.08);mnext+=e;mn++}}
+function mStart(){if(!mus)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();if(!mG){mG=ac.createGain();mG.connect(ac.destination)}mG.gain.setTargetAtTime(1,ac.currentTime,.1);mnext=Math.max(mnext,ac.currentTime+.1);clearInterval(mt);mt=setInterval(mTick,120);mOn=true}catch(_){}}
+function musicBegin(){mStart()}
+$("#mus").onclick=()=>{mus=!mus;$("#mus").setAttribute("aria-pressed",mus);$("#mus").title=mus?"Nhạc nền (đang bật)":"Nhạc nền (đang tắt)";if(mus)mStart();else{clearInterval(mt);if(mG)mG.gain.setTargetAtTime(0,ac.currentTime,.05)}};
+document.addEventListener("visibilitychange",()=>{if(document.hidden)clearInterval(mt);else if(mus&&mOn)mStart()});
+const SONGS=[
+{n:"Dịu dàng",b:84,r:[60,57,53,55],q:[0,1,0,0],m:[76,0,79,0,84,79,76,0,76,0,81,0,84,81,76,0,77,0,81,0,84,81,77,0,74,0,79,0,83,79,74,0],w:"sine"},
+{n:"Rộn ràng",b:120,r:[55,62,64,60],q:[0,0,1,0],m:[79,83,86,83,79,83,86,0,78,81,86,81,78,81,86,0,79,83,88,83,79,83,76,0,76,79,84,79,76,79,84,0],w:"triangle"},
+{n:"Mùa thu",b:66,r:[57,53,60,55],q:[1,0,0,0],m:[76,0,0,72,76,0,81,0,77,0,0,72,77,0,81,0,76,0,79,0,84,0,79,0,74,0,79,0,83,0,79,0],w:"sine"},
+{n:"Nắng mai",b:100,r:[62,57,59,55],q:[0,0,1,0],m:[78,81,86,81,78,0,74,0,76,81,85,81,76,0,73,0,78,83,86,83,78,0,74,0,79,83,86,83,79,0,74,0],w:"triangle"},
+{n:"Ru êm",b:72,r:[53,50,58,60],q:[0,1,0,0],m:[81,0,77,0,84,0,81,0,77,0,81,0,86,0,81,0,74,0,77,0,82,0,77,0,76,0,79,0,84,0,79,0],w:"sine"}];
+let sg=R(SONGS.length);
+const mf=m=>440*Math.pow(2,(m-69)/12);
+function mTick(){if(!mus||!ac)return;const S=SONGS[sg],e=30/S.b;while(mnext<ac.currentTime+.4){const s=mn%32,b=s>>3,i=s&7,t=mnext,r=S.r[b],ch=[r,r+(S.q[b]?3:4),r+7];mtone(mf(ch[i%3]),t,.5,"triangle",.09);if(!i){mtone(mf(r-12),t,e*7,"sine",.18);ch.forEach(n=>mtone(mf(n),t,e*7,"sine",.045))}if(S.m[s])mtone(mf(S.m[s]),t,e*2.2,S.w,.15);mnext+=e;mn++}}
+function mStart(nw){if(!mus)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();if(mG)mG.gain.setTargetAtTime(0,ac.currentTime,.04);mG=ac.createGain();mG.gain.value=1.4;mG.connect(ac.destination);mn=0;mnext=ac.currentTime+.1;clearInterval(mt);mt=setInterval(mTick,120);mOn=true;if(nw)toast("🎵 "+SONGS[sg].n)}catch(_){}}
+function musicBegin(){mStart(1)}
+$("#mus").onclick=()=>{sg=(sg+1+R(SONGS.length-1))%SONGS.length;mus=true;$("#mm").textContent="⏸";$("#mm").title="Tạm dừng nhạc";mStart(1)};
+$("#mm").onclick=()=>{mus=!mus;$("#mm").textContent=mus?"⏸":"▶";$("#mm").title=mus?"Tạm dừng nhạc":"Phát nhạc";if(mus)mStart();else{clearInterval(mt);if(mG)mG.gain.setTargetAtTime(0,ac.currentTime,.05)}};
+$("#snd").onclick=()=>{snd=!snd;$("#snd").setAttribute("aria-pressed",snd);$("#snd").textContent=snd?"🔔":"🔇";$("#snd").title=snd?"Âm thanh (đang bật)":"Âm thanh (đang tắt)";chime([523,659,784])};
+/* ---------- LUỒNG TRẢI NGHIỆM ---------- */
+let T=[],S={};const later=(f,ms)=>T.push(setTimeout(f,ms)),clr=()=>{T.forEach(clearTimeout);T=[]};
+function show(id){clr();document.body.classList.remove("fxtop");document.querySelectorAll(".scr").forEach(s=>s.classList.toggle("on",s.id===id));scrollTo(0,0);step({home:0,form:1,card:2}[id])}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.id);toast.id=setTimeout(()=>t.classList.remove("on"),2200)}
+
+$("#start").onclick=()=>{musicBegin();chime([523,784]);firework(W_*.25,H_*.3);firework(W_*.75,H_*.3);show("form");setTimeout(()=>$("#nm").focus(),300)};
+$("#back").onclick=()=>show("home");
+function submit(){
+const n=$("#nm").value.trim().replace(/\s+/g," ").normalize("NFC"),a=$("#ag").value.trim(),ai=+a;
+const m1=!n?"Bạn nhớ nhập tên người nhận nhé.":!/\p{L}/u.test(n)?"Tên cần có ít nhất một chữ cái nhé.":"";
+const m2=!a?"Bạn chưa nhập độ tuổi.":(!/^\d{1,3}$/.test(a)||ai<1||ai>120)?"Hãy nhập tuổi là số nguyên từ 1 đến 120 nhé.":"";
+$("#e1").textContent=m1;$("#e2").textContent=m2;
+$("#nm").setAttribute("aria-invalid",!!m1);$("#ag").setAttribute("aria-invalid",!!m2);
+if(m1||m2){($("#e1").textContent?$("#nm"):$("#ag")).focus();return}
+S={name:n,short:n.split(" ").pop(),g:grp(ai),wi:-1,gi:-1,go:false,busy:false};build()}
+$("#go").onclick=submit;
+["#nm","#ag"].forEach(q=>$(q).addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();submit()}}));
+
+function build(){
+$("#env").classList.remove("open");$("#stage").hidden=false;$("#openCard").disabled=false;
+$("#paper").hidden=true;$("#paper").classList.remove("pop");$("#acts").hidden=true;
+$("#box").className="box";$("#gift").hidden=true;$("#closing").hidden=true;$("#fact").hidden=true;$("#openGift").hidden=false;$("#openGift").disabled=false;
+show("card")}
+$("#openCard").onclick=()=>{$("#openCard").disabled=true;$("#env").classList.add("open");burst(28,.5,.45);pop();
+later(()=>{$("#stage").hidden=true;const p=$("#paper");p.hidden=false;p.className="paper pop t"+R(4);
+const el=$("#nameEl");el.textContent="";el.className=S.name.length>28?"s xs":S.name.length>16?"s":"";let k=0;
+S.name.split(" ").forEach((w,wi,arr)=>{const sp=document.createElement("span");sp.className="w";
+[...w].forEach(c=>{const ch=document.createElement("span");ch.className="ch";ch.textContent=c;ch.style.animationDelay=(.25+k++*.05)+"s";sp.appendChild(ch)});
+el.appendChild(sp);if(wi<arr.length-1)el.appendChild(document.createTextNode(" "))});
+setWish();burst(100,.5,.3);chime([523,659,784,1047]);grandFireworks();next();step(3);$("#acts").hidden=false;$("#openGift").focus({preventScroll:true})},1700)};
+function setWish(){S.wi=pick(W[S.g].length,S.wi);const w=$("#wish"),f=W[S.g][S.wi].replace(/\{n\}/g,()=>S.short);clearInterval(setWish.id);w.textContent="";
+const a=document.createElement("span"),b=document.createElement("span");b.style.visibility="hidden";w.append(a,b);
+if(reduce){a.textContent=f;return}
+let i=0;setWish.id=setInterval(()=>{i++;a.textContent=f.slice(0,i);b.textContent=f.slice(i);if(i>=f.length)clearInterval(setWish.id)},32)}
+function openGift(){S.gi=pick(GF[S.g].length,S.gi);const[e,n,d,a]=GF[S.g][S.gi];S.go=true;
+$("#openGift").hidden=true;$("#box").classList.add("open");burst(30,.5,.62);whistle();
+later(()=>{$("#box").classList.add("gone");const em=$("#gemo");em.textContent=e;em.className="gemo "+a;
+$("#gname").textContent=n;$("#gdesc").textContent=d;const g=$("#gift");g.hidden=false;g.className="gift";void g.offsetWidth;g.className="gift r"+R(3);
+$("#closing").textContent=END[R(END.length)];$("#closing").hidden=false;burst(90,.5,.62);chime([659,784,988,1319]);giftParty();next();step(4);const f=$("#fact");f.textContent=FACTS[R(FACTS.length)];f.hidden=false},800)}
+$("#openGift").onclick=openGift;
+$("#bWish").onclick=setWish;
+$("#bLuck").onclick=()=>{if(!S.go){openGift();return}if(S.busy)return;S.busy=true;
+$("#gift").hidden=true;$("#closing").hidden=true;$("#box").className="box";later(()=>{S.busy=false;openGift()},450)};
+function text(){let t=$("#wish").textContent+"\n\n— Chúc mừng Ngày Phụ nữ Việt Nam 20/10 —";
+if(S.go&&!$("#gift").hidden)t+="\n🎁 Quà tặng: "+$("#gname").textContent+" – "+$("#gdesc").textContent;return t}
+async function copy(t){try{await navigator.clipboard.writeText(t);return true}catch(_){
+const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();
+let ok=false;try{ok=document.execCommand("copy")}catch(_){}a.remove();return ok}}
+$("#bCopy").onclick=async()=>toast(await copy(text())?"Đã sao chép lời chúc ♥":"Chưa sao chép được, bạn hãy thử lại nhé");
+$("#bShare").onclick=async()=>{const t=text();
+if(navigator.share){try{await navigator.share({title:"Thiệp chúc mừng 20/10",text:t});return}catch(e){if(e.name==="AbortError")return}}
+toast(await copy(t)?"Đã sao chép thiệp, bạn dán để gửi nhé ♥":"Chưa chia sẻ được, bạn hãy thử lại nhé")};
+$("#bNew").onclick=()=>{$("#nm").value="";$("#ag").value="";["#e1","#e2"].forEach(s=>$(s).textContent="");show("form");setTimeout(()=>$("#nm").focus(),300)};
+$("#bHome").onclick=()=>show("home");
+const pp=$("#paper");
+pp.addEventListener("pointermove",e=>{if(reduce||e.pointerType!=="mouse")return;const r=pp.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;pp.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`});
+pp.addEventListener("pointerleave",()=>{pp.style.transform=""});
+document.addEventListener("pointerdown",e=>{if(!$("#card").classList.contains("on")||e.target.closest("button"))return;burst(14,e.clientX/innerWidth,e.clientY/innerHeight)});
+</script>
+</body>
+</html>
